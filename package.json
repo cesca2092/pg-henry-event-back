@@ -4,7 +4,8 @@
   "description": "eVent Project",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon -L"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "author": "",
   "license": "ISC",

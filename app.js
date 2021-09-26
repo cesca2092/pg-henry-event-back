@@ -40,7 +40,7 @@ app.use('/cloudinary',require('./routes/cloudinary'));
 
 
 app.listen(port,' 0.0.0.0' , () => {
-  console.log(`Listening at http://localhost:${port}`);
+  console.log(`Listening at port:${port}`);
 
   //conectar base de datos
   sequelize.sync( {force: false}).then(() => {
