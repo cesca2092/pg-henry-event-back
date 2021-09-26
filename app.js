@@ -39,7 +39,7 @@ app.use('/cloudinary',require('./routes/cloudinary'));
 
 
 
-app.listen(port, () => {
+app.listen(port,' 0.0.0.0' , () => {
   console.log(`Listening at http://localhost:${port}`);
 
   //conectar base de datos
