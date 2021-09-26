@@ -6,7 +6,7 @@ const sequelize = require('./database/db');
 require('./database/relations');
 
 //setting
-const port = 3001 || process.env.PORT
+const port = 4000 || process.env.PORT
 
 //Middleware express para llenar el body
 app.use(express.json());
@@ -39,7 +39,7 @@ app.use('/cloudinary',require('./routes/cloudinary'));
 
 
 
-app.listen(port,' 0.0.0.0' , () => {
+app.listen(port, '0.0.0.0' , () => {
   console.log(`Listening at port:${port}`);
 
   //conectar base de datos
