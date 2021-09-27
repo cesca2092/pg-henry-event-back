@@ -16,6 +16,20 @@ exports.getAllPromoters = async (req,res) => {
     }  
 }
 
+
+
+//get id promoter 
+exports.getPromoter =async(req,res)=>{
+   const {id} =req.params
+   let promoterid  =id 
+   const promoter =await Promoter.findByPk(promoterid,{
+                
+                    include:Event 
+                })
+    promoter ? res.json(promoter) : ressendStatus(404)
+
+}
+
 //Get Eventos por promotor
 exports.getEventPromoter = async (req,res) => {
     const {id} = req.params

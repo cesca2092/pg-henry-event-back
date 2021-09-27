@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { 
     getAllPromoters,
-    getEventPromoter
+    getEventPromoter,
+    getPromoter,
 } = require('../controllers/Promoter/getController');
 const {
     saveInfoPromotor, 
@@ -13,7 +14,9 @@ const {
 
 //GET
  router.get('/all',getAllPromoters);
- router.get('/:id',getEventPromoter); 
+ router.get('/:id',getEventPromoter);
+ router.get('/promoter/:id',getPromoter);
+
 
 
 //POST
