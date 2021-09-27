@@ -4,7 +4,7 @@ const User = require('../../database/models/User');
 exports.postUser = async (req, res) => {
 
     const { first_name, last_name, username, password,
-        birthdate, picture, email, phone } = req.body;
+        birthdate, picture, email, phone, country } = req.body;
 
     try {
 
@@ -14,7 +14,7 @@ exports.postUser = async (req, res) => {
             },
             defaults: {
                 first_name, last_name, username, password,
-                birthdate, picture, email, phone
+                birthdate, picture, email, phone, country
             }
         });
 
