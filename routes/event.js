@@ -31,7 +31,7 @@ router.post('/event',saveInfoEvent);
 
 
 //PUT(sequelize usa el metodo patch)
-router.patch('/event/edit/:id',putController)
+router.put('/event/edit/:id',putController)
 
 //DELETE
 router.delete('/event/delete/:id',deleteController)

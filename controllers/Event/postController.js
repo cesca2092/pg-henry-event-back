@@ -19,7 +19,7 @@ exports.saveInfoEvent = async (req,res) => {
             defaults:{
             name,           description,    starring,   virtual,        ticket_limit,        
             address,        pictures,       start_date, finish_date,    schedule,   
-            isRecurrent,    weekdays,       tags,       age_rating,     price,  
+            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price,  
             }
         });
     
