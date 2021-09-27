@@ -35,4 +35,4 @@ exports.getEventPromoter = async (req,res) => {
         res.json({error:true})
     }
     
-} 
+}  
