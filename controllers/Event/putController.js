@@ -4,19 +4,19 @@ exports.putController = async (req, res) => {
     console.log(req.body)
     const { id } = req.params;
     const { 
-        name,           description,    starring,   virtual,        city,   
-        region,          country,          address,   pictures,       start_date, 
-        finish_date,    schedule,      isRecurrent,    weekdays,       tags,      
-         age_rating,     price,       ticket_limit,    locationId,
+        name,           description,    starring,   virtual,        ticket_limit,       
+        address,        pictures,       start_date, finish_date,    schedule,   
+        isRecurrent,    weekdays,       tags,       age_rating,     price,  
+        country,        city,           region,   promoter_id
     } = req.body;
-    console.log(id,locationId)
+   
  
     try {
         const result = await Event.update({
-            name,           description,    starring,   virtual,          
+            name,           description,    starring,   virtual,        ticket_limit,       
             address,        pictures,       start_date, finish_date,    schedule,   
-            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price,  
-            ticket_limit
+            isRecurrent,    weekdays,       tags,       age_rating,     price,  
+            country,        city,           region,   promoter_id
         },{
             where: {
                  id
