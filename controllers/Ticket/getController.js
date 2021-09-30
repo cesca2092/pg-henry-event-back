@@ -5,7 +5,7 @@ exports.viewTicketUser = async (req,res) => {
     const { userId } = req.params
 
     try {
-        let userTickets = await Tickets.findAll({
+        let userTickets = await Ticket.findAll({
             where: {
                 idUser: userId
             }
