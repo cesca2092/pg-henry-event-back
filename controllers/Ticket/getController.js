@@ -13,7 +13,7 @@ exports.viewTicketUser = async (req,res) => {
         })
         res.json(userTickets)
     } catch (error) {
-        res.send(res.send({response:'No tickets or error',error:error});)
+        res.send(res.send({response:'No tickets or error',error:error}))
     }
 }
 
