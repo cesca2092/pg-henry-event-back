@@ -64,7 +64,8 @@ const User = sequelize.define('user', {
         unique: true,
     },
     favorite : {
-        type: DataTypes.ARRAY
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true
     }
 },
 {
