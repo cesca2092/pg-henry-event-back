@@ -21,7 +21,7 @@ router.post('/',postUser);
 router.post('/login',loginUser);
 
 //PUT
-router.put('/fav',putUser)
+router.put('/fav',putUser)//Abi
 
 
 module.exports = router;
