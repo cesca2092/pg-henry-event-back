@@ -37,7 +37,7 @@ app.use('/api/location', require('./routes/location'))
 app.use('/cloudinary', require('./routes/cloudinary'));
 
 //Ticket Routes
-app.use('/api', require('./routes/ticket'));
+// app.use('/api', require('./routes/ticket'));
 
 
 
