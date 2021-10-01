@@ -52,10 +52,12 @@ const Event = sequelize.define('event', {
     isrecurrent: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-    },
+    }, 
     weekdays: {
         type: DataTypes.ARRAY(DataTypes.ENUM(
-             "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo"
+
+            "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
+
             )),
         allowNull: false,
     },
@@ -89,7 +91,13 @@ const Event = sequelize.define('event', {
     //     type: DataTypes.STRING,
     //     // allowNull:false,
     // }
-},
+    section: {
+        /* ?????????????? */
+        type: DataTypes.JSON,   
+        allowNull: true,
+    },
+
+},   
 {
     timestamps: false
 }
