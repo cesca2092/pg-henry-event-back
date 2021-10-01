@@ -12,6 +12,7 @@ const Comment = require('./models/Comment');
 
 // Event related models
 const Location = require('./models/Location');
+
 // const Schedule = require('./models/Schedule');
 // const Tag = require('./models/Tag');
 // const Guest = require('./models/Guest');
@@ -27,6 +28,7 @@ Comment.belongsTo(User);
 //event - comment
 Event.hasMany(Comment);
 Comment.belongsTo(Event);
+
 
 //event-location
 Location.hasMany(Event);
@@ -97,3 +99,4 @@ O discriminar entre asistir y agregar a favoritos? Cómo exactamente? */
 
 // SEGÚN ANOTADOR. CHEQUEAR SI SE NECESITA AGREGAR
 
+// 
