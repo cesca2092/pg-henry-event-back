@@ -48,7 +48,7 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`Listening at port:${port}`);
 
   //conectar base de datos
-  sequelize.sync({ force: false }).then(() => {
+  sequelize.sync({ force: true }).then(() => {
     console.log('Conection to the DB Success');
   }).catch(error => {
     console.log('An error has been found: ', error)

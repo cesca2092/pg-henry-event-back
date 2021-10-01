@@ -6,11 +6,9 @@ const {
 } = require('../controllers/User/getController');
 const { 
     postUser, 
-    loginUser 
+    loginUser,
+    // postFav//Abi 
 } = require('../controllers/User/postController');
-const {
-    putUser
-} = require('../controllers/Favorite/putController')
 
 //GET
 router.get('/all',getAllUsers);
@@ -20,8 +18,8 @@ router.get('/:id',getUserByID);
 router.post('/',postUser);
 router.post('/login',loginUser);
 
-//PUT
-router.put('/fav',putUser)//Abi
+// router.post('/fav', postFav)//Abi
+
 
 
 module.exports = router;
