@@ -29,11 +29,11 @@ exports.saveInfoEvent = async (req,res) => {
         if(!created){
             return res.json({created:false})
         }
-        console.log(country, region,city)
+        console.log(country, province,city)
         const location = await Location.findOrCreate({
             where:{
                 country,
-                province:region,
+                // province:province, //Abi y Daf
                 city,
 
             }
