@@ -52,18 +52,13 @@ const Event = sequelize.define('event', {
     isrecurrent: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-    }, 
+    },
     weekdays: {
         type: DataTypes.ARRAY(DataTypes.ENUM(
-<<<<<<< HEAD
-            "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"
-        )),
-=======
 
             "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
 
-            )),
->>>>>>> e8169896d96f6d3feb30c9c7f69dc38ffaf263d4
+        )),
         allowNull: false,
     },
     tags: { // TEMPORARY. TURN INTO SEPARATE MODEL AFTERWARDS
@@ -96,23 +91,16 @@ const Event = sequelize.define('event', {
     //     type: DataTypes.STRING,
     //     // allowNull:false,
     // }
-<<<<<<< HEAD
+    section: {
+        /* ?????????????? */
+        type: DataTypes.JSON,
+        allowNull: true,
+    },
+
 },
     {
         timestamps: false
     }
-=======
-    section: {
-        /* ?????????????? */
-        type: DataTypes.JSON,   
-        allowNull: true,
-    },
-
-},   
-{
-    timestamps: false
-}
->>>>>>> e8169896d96f6d3feb30c9c7f69dc38ffaf263d4
 )
 
 module.exports = Event;
