@@ -6,7 +6,7 @@ const sequelize = require('./database/db');
 require('./database/relations');
 
 //setting
-const port = process.env.PORT
+const port = process.env.PORT || 3001
 
 //Middleware express para llenar el body
 app.use(express.json());
