@@ -93,7 +93,7 @@ const Event = sequelize.define('event', {
     // }
     section: {
         /* ?????????????? */
-        type: DataTypes.JSON,   
+        type: DataTypes.STRING,   
         allowNull: true,
     },
 
