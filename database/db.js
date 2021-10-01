@@ -3,7 +3,7 @@ const { database } = require('../config');
 
 
 
-// Option 2: Passing parameters separately (other dialects)
+//Option 2: Passing parameters separately (other dialects)
 // const sequelize = new Sequelize(
 //     database.database,
 //     database.username,

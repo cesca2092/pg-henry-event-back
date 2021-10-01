@@ -7,14 +7,14 @@ exports.putController = async (req, res) => {
         name,           description,    starring,   virtual,        location,   
         address,        pictures,       start_date, finish_date,    schedule,   
         isRecurrent,    weekdays,       tags,       age_rating,     price,  
-        ticket_limit
+        ticket_limit,   section,
     } = req.body;
     try {
         const result = await Event.update({
             name,           description,    starring,   virtual,        location,   
             address,        pictures,       start_date, finish_date,    schedule,   
             isRecurrent,    weekdays,       tags,       age_rating,     price,  
-            ticket_limit
+            ticket_limit,   section,
         },{
             where: {
                  id
