@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { 
-    viewTicketUser
+    viewTicketUser,
+    prueba
 } = require('../controllers/Ticket/getController');
 const { 
-    createTicket
+    createTicket,
+    pruebapost
 } = require('../controllers/Ticket/postController');
 const { 
     deleteTicket
@@ -13,9 +15,11 @@ const {
 
 //GET
 router.get('/ticket/:userId',viewTicketUser);
+router.get('/prueba',prueba);
 
 //POST
-router.post('/ticket',createTicket);
+router.post('/ticket/create',createTicket);
+router.post('/pruebapost',pruebapost);
 
 //DELETE
 router.delete('/ticket/delete/:id',deleteTicket)

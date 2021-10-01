@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
-const Ticket = sequelize.define('event', {
+const Ticket = sequelize.define('Ticket', {
     id:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -33,7 +33,7 @@ const Ticket = sequelize.define('event', {
         allowNull: false
     },
     seating:{
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },   
 },

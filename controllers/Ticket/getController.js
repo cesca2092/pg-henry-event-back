@@ -17,3 +17,10 @@ exports.viewTicketUser = async (req,res) => {
     }
 }
 
+
+exports.prueba = async (req,res) => {
+
+   
+        res.send('funciona')
+    
+}
