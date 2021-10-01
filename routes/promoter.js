@@ -15,7 +15,6 @@ const {
 //GET
  router.get('/all',getAllPromoters);
  router.get('/:id',getEventPromoter);
- 
 
 
 

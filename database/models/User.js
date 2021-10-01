@@ -63,6 +63,10 @@ const User = sequelize.define('user', {
         allowNull: false,
         unique: true,
     },
+    favorite : {
+        type: DataTypes.ARRAY(DataTypes.STRING),//Abi
+        allowNull: true
+    }
 },
 {
     timestamps: false

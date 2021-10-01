@@ -8,7 +8,9 @@ const {
     postUser, 
     loginUser 
 } = require('../controllers/User/postController');
-
+const {
+    putUser
+} = require('../controllers/Favorite/putController')
 
 //GET
 router.get('/all',getAllUsers);
@@ -17,6 +19,9 @@ router.get('/:id',getUserByID);
 //POST
 router.post('/',postUser);
 router.post('/login',loginUser);
+
+//PUT
+router.put('/fav',putUser)//Abi
 
 
 module.exports = router;
