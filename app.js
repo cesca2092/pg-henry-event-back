@@ -6,7 +6,9 @@ const sequelize = require('./database/db');
 require('./database/relations');
 
 //setting
-const port = process.env.PORT || 3001;
+
+const port = process.env.PORT || 3001
+
 
 //Middleware express para llenar el body
 app.use(express.json());
@@ -37,7 +39,7 @@ app.use('/api/location', require('./routes/location'))
 app.use('/cloudinary', require('./routes/cloudinary'));
 
 //Ticket Routes
-  app.use('/api', require('./routes/ticket'));
+app.use('/api', require('./routes/ticket'));
 
 
 

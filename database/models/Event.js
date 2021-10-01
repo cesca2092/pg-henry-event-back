@@ -2,12 +2,12 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
 const Event = sequelize.define('event', {
-    id:{
+    id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
-      },
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -44,7 +44,7 @@ const Event = sequelize.define('event', {
     },
     finish_date: { // AAAA-MM-DD
         type: DataTypes.STRING,
-        
+
     },
     schedule: { //TEMPORARY. CONVERT INTO SEPARATE MODEL AFTERWARDS
         type: DataTypes.ARRAY(DataTypes.STRING),
@@ -55,14 +55,16 @@ const Event = sequelize.define('event', {
     },
     weekdays: {
         type: DataTypes.ARRAY(DataTypes.ENUM(
-             "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo"
-            )),
+
+            "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
+
+        )),
         allowNull: false,
     },
     tags: { // TEMPORARY. TURN INTO SEPARATE MODEL AFTERWARDS
         type: DataTypes.ENUM(
             "Exteriores", "Interiores", "En vivo", "Recital", "Teatro", "Película", "Disco", "Deportes",
-            ),
+        ),
         allowNull: false,
     },
     age_rating: {
@@ -89,10 +91,16 @@ const Event = sequelize.define('event', {
     //     type: DataTypes.STRING,
     //     // allowNull:false,
     // }
+    section: {
+        /* ?????????????? */
+        type: DataTypes.JSON,
+        allowNull: true,
+    },
+
 },
-{
-    timestamps: false
-}
+    {
+        timestamps: false
+    }
 )
 
 module.exports = Event;
