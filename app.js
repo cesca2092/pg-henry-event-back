@@ -7,7 +7,7 @@ require('./database/relations');
 
 //setting
 
-const port = process.env.PORT 
+const port = process.env.PORT
 
 
 //Middleware express para llenar el body
@@ -39,7 +39,7 @@ app.use('/api/location', require('./routes/location'))
 app.use('/cloudinary', require('./routes/cloudinary'));
 
 //Ticket Routes
-  app.use('/api', require('./routes/ticket'));
+app.use('/api', require('./routes/ticket'));
 
 
 
@@ -48,7 +48,7 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`Listening at port:${port}`);
 
   //conectar base de datos
-  sequelize.sync({ force: false }).then(() => {
+  sequelize.sync({ force: true }).then(() => {
     console.log('Conection to the DB Success');
   }).catch(error => {
     console.log('An error has been found: ', error)
