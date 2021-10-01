@@ -55,7 +55,7 @@ const Event = sequelize.define('event', {
     },
     weekdays: {
         type: DataTypes.ARRAY(DataTypes.ENUM(
-            "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo"
+             "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado","Domingo"
             )),
         allowNull: false,
     },

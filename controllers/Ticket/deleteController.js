@@ -1,6 +1,6 @@
 const Ticket = require('../../database/models/Ticket');
 
-exports.eleteTicket = async (req,res) => {
+exports.deleteTicket = async (req,res) => {
     const { id } = req.params
     try {
      let deleteTicket = await Ticket.destroy({

@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
-const Event = sequelize.define('event', {
+const Ticket = sequelize.define('event', {
     id:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -42,4 +42,4 @@ const Event = sequelize.define('event', {
 }
 )
 
-module.exports = Event;
+module.exports = Ticket;
