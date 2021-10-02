@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
+
 const Ticket = sequelize.define('ticket', {
 
     id:{
@@ -21,7 +22,7 @@ const Ticket = sequelize.define('ticket', {
         allowNull: false
     },
     quantity:{
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     direction:{
@@ -30,6 +31,10 @@ const Ticket = sequelize.define('ticket', {
     },
     date:{
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    schedule:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },
     seating:{
