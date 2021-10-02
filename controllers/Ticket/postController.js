@@ -2,16 +2,19 @@ const Ticket = require('../../database/models/Ticket');
 
 exports.createTicket = async (req,res) => {
     const { 
-        idUser, idEvent, price, quantity, direction, date,schedule, seating
+        idUser, nameUser, idEvent, nameEvent, price, quantity, total, direction, date, schedule, seating
     } = req.body;
 
     try {
         let ticket = await Ticket.create(
             {
                 idUser,
+                nameUser,
                 idEvent,
+                nameEvent,
                 price,
                 quantity,
+                total,
                 direction,
                 date,
                 schedule,
