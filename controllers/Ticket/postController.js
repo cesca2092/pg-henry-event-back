@@ -2,7 +2,7 @@ const Ticket = require('../../database/models/Ticket');
 
 exports.createTicket = async (req,res) => {
     const { 
-        idUser, idEvent, price, quantity, direction, date, seating
+        idUser, idEvent, price, quantity, direction, date,schedule, seating
     } = req.body;
 
     try {
@@ -14,6 +14,7 @@ exports.createTicket = async (req,res) => {
                 quantity,
                 direction,
                 date,
+                schedule,
                 seating
             }
         )
