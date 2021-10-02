@@ -7,6 +7,8 @@ exports.putController = async (req, res) => {
         name,           description,    starring,   virtual,        ticket_limit,       
         address,        pictures,       start_date, finish_date,    schedule,   
         isRecurrent,    weekdays,       tags,       age_rating,     price,  
+          section,
+
         country,        city,           region,   promoter_id
     } = req.body;
    
@@ -16,7 +18,10 @@ exports.putController = async (req, res) => {
             name,           description,    starring,   virtual,        ticket_limit,       
             address,        pictures,       start_date, finish_date,    schedule,   
             isRecurrent,    weekdays,       tags,       age_rating,     price,  
+              section,
+
             country,        city,           region,   promoter_id
+
         },{
             where: {
                  id

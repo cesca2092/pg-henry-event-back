@@ -6,9 +6,9 @@ const {
 } = require('../controllers/User/getController');
 const { 
     postUser, 
-    loginUser 
+    loginUser,
+    // postFav//Abi 
 } = require('../controllers/User/postController');
-
 
 //GET
 router.get('/all',getAllUsers);
@@ -17,6 +17,9 @@ router.get('/:id',getUserByID);
 //POST
 router.post('/',postUser);
 router.post('/login',loginUser);
+
+// router.post('/fav', postFav)//Abi
+
 
 
 module.exports = router;

@@ -33,7 +33,6 @@ exports.getPromoter =async(req,res)=>{
 //Get Eventos por promotor
 exports.getEventPromoter = async (req,res) => {
     const {id} = req.params
-    console.log('aquiiiiiiiii entre a gett')
     try{
         const eventPromotor = await Promoter.findByPk(id,{
             include:[

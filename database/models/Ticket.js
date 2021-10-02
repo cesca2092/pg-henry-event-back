@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
 const Ticket = sequelize.define('ticket', {
+
     id:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,

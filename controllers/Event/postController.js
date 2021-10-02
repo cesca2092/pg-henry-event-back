@@ -3,12 +3,13 @@ const Promoter = require ('../../database/models/Promoter');
 const Location = require('../../database/models/Location');
 
 exports.saveInfoEvent = async (req,res) => {
-    console.log(req.body.promoter_id)
+    
     const { 
-        name,           description,    starring,   virtual,        ticket_limit,       
+        name,           description,    starring,   remote,        ticket_limit,       
         address,        pictures,       start_date, finish_date,    schedule,   
         isRecurrent,    weekdays,       tags,       age_rating,     price,  
-        country,        city,           region,   promoter_id
+        country,        city,           region,   promoter_id,    section,
+
     } = req.body;
     
     try {
@@ -17,9 +18,10 @@ exports.saveInfoEvent = async (req,res) => {
                 name
             },
             defaults:{
-            name,           description,    starring,   virtual,        ticket_limit,        
+            name,           description,    starring,   remote,        ticket_limit,        
             address,        pictures,       start_date, finish_date,    schedule,   
-            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price,  
+            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price,  section,
+
             }
         });
     
@@ -27,12 +29,12 @@ exports.saveInfoEvent = async (req,res) => {
             return res.json({created:false})
         }
         
-        console.log(country, region,city)
         const location = await Location.findOrCreate({
             where:{
                 country,
-                province:region,
+                province:region, 
                 city,
+
             }
         })
 

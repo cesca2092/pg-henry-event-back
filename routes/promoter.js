@@ -8,14 +8,13 @@ const {
 const {
     saveInfoPromotor, 
     loginPromoter,
-} = require('../controllers/Promoter/postController');
+} = require('../controllers/Promoter/postController'); 
 
 
 
 //GET
  router.get('/all',getAllPromoters);
  router.get('/:id',getEventPromoter);
- router.get('/promoter/:id',getPromoter);
 
 
 
