@@ -13,7 +13,15 @@ const Ticket = sequelize.define('ticket', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    nameUser:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     idEvent:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    nameEvent:{
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -22,6 +30,10 @@ const Ticket = sequelize.define('ticket', {
         allowNull: false
     },
     quantity:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    total:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
@@ -35,7 +47,7 @@ const Ticket = sequelize.define('ticket', {
     },
     schedule:{
         type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: false
+        allowNull: true
     },
     seating:{
         type: DataTypes.ARRAY(DataTypes.STRING),
