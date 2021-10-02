@@ -45,6 +45,7 @@ exports.loginUser = async (req, res) => {
             if (user) return res.json({
                 msg: true,
                 id: user.id,
+                fullName: `${user.first_name} ${user.last_name}`,
                 username: user.username,
                 picture: user.picture,
                 type: 'user'
@@ -63,6 +64,7 @@ exports.loginUser = async (req, res) => {
             if (user) return res.json({
                 msg: true,
                 id: user.id,
+                fullName: `${user.first_name} ${user.last_name}`,
                 username: user.username,
                 picture: user.picture,
                 type: 'user'
