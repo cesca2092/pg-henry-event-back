@@ -6,9 +6,12 @@ const {
 } = require('../controllers/User/getController');
 const { 
     postUser, 
-    loginUser,
-    // postFav//Abi 
+    loginUser
 } = require('../controllers/User/postController');
+
+const {
+    putController
+} = require('../controllers/User/putController')
 
 //GET
 router.get('/all',getAllUsers);
@@ -18,7 +21,8 @@ router.get('/:id',getUserByID);
 router.post('/',postUser);
 router.post('/login',loginUser);
 
-// router.post('/fav', postFav)//Abi
+//PUT
+router.put('/fav', putController)//Abi
 
 
 
