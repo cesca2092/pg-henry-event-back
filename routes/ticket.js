@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { 
     viewTicketUser,
-    viewTicketEvent 
+    viewTicketEvent,
+    viewTicketPromoter 
 } = require('../controllers/Ticket/getController');
 const { 
     createTicket,
@@ -16,6 +17,7 @@ const {
 //GET
 router.get('/ticket/:userId',viewTicketUser);
 router.get('/ticket/event/:eventId',viewTicketEvent );
+router.get('/ticket/promoter/:promoterId',viewTicketPromoter );
 
 //POST
 router.post('/ticket/create',createTicket);

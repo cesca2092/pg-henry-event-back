@@ -29,6 +29,10 @@ const Ticket = sequelize.define('ticket', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    idPromoter:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     quantity:{
         type: DataTypes.INTEGER,
         allowNull: false
