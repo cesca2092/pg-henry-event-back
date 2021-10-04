@@ -8,8 +8,12 @@ exports.putController = async (req, res) => {
             where: {id:id_user},
             attributes: ['favorite']
         })
-        const data = favs[0].favorite
+        let data = favs[0].favorite
+        if(data !== null){
         data.push(event)
+        }else{
+            data = [event]
+        }
         console.log(data,'favss')
         const resp = await User.update({
             favorite:data
