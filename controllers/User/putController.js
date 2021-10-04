@@ -2,13 +2,21 @@ const User = require('../../database/models/User');
 
 exports.putController = async (req, res) => {
     const { event , id_user} = req.body;
-    console.log('"EVENT":', event, '"ID_USER":',id_user)
+    // console.log('"EVENT":', event, '"ID_USER":',id_user)
     try {
+        const favs = await User.findAll({
+            where: {id:id_user},
+            attributes: ['favorite']
+        })
+        const data = favs[0].favorite
+        data.push(event)
+        console.log(data,'favss')
         const resp = await User.update({
-            favorite:[event]
+            favorite:data
         },{
             where:{ id : id_user}
         })
+        // return res.json(data)
         return res.json({msg:`Se agregó con éxito a favoritos '${event.name}' `})
     } catch(error){
         console.log(error)
