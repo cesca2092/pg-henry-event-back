@@ -31,3 +31,19 @@ exports.viewTicketEvent = async (req,res) => {
         res.send(res.send({response:'No tickets or error',error:error}))
     }
 }
+
+exports.viewTicketPromoter = async (req,res) => {
+
+    const { promoterId } = req.params
+
+    try {
+        let promoterTickets = await Ticket.findAll({
+            where: {
+                idPromoter: promoterId
+            }
+        })
+        res.json(promoterTickets)
+    } catch (error) {
+        res.send(res.send({response:'No tickets or error',error:error}))
+    }
+}
