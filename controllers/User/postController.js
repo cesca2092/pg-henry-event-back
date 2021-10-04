@@ -14,7 +14,7 @@ exports.postUser = async (req, res) => {
             },
             defaults: {
                 first_name, last_name, username, password,
-                birthdate, picture, email, phone, country
+                birthdate, picture, email, phone, country,favorite:[]
             }
         });
 
