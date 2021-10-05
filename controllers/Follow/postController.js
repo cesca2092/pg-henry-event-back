@@ -6,7 +6,7 @@ exports.postFollow = async (req, res) => {
 
     try {
         User.addPromoter(promoter_id);
-        Promoter.addEvent(user_id);
+        Promoter.addUser(user_id);
 
         res.json({ msg:'Now following' })
     } catch (error) {
