@@ -61,10 +61,10 @@ const Promoter = sequelize.define('promoter', {
         type: DataTypes.STRING,
         allowNull: false,
     }, */
-    followed_by: {
+/*     followed_by: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
-    },
+    }, */
     authorized: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,

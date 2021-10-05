@@ -67,10 +67,10 @@ const User = sequelize.define('user', {
         type: DataTypes.ARRAY(DataTypes.STRING),//Abi
         allowNull: true
     },
-    following: {
+/*     following: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
-    }
+    } */
 },
 {
     timestamps: false,
