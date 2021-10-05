@@ -23,7 +23,9 @@ const Location = require('./models/Location');
 User.hasMany(Comment);
 Comment.belongsTo(User);
 
-
+//user - event
+// User.belongsToMany(Event , { through: 'event_fav_user' });
+// Event.belongsToMany(User , { through: 'event_fav_user' });
 
 //event - comment
 Event.hasMany(Comment);

@@ -1,5 +1,5 @@
 const User = require('../../database/models/User');
-
+const Event = require('../../database/models/Event')
 
 exports.postUser = async (req, res) => {
 
@@ -14,7 +14,7 @@ exports.postUser = async (req, res) => {
             },
             defaults: {
                 first_name, last_name, username, password,
-                birthdate, picture, email, phone, country
+                birthdate, picture, email, phone, country,favorite:[]
             }
         });
 
@@ -45,6 +45,7 @@ exports.loginUser = async (req, res) => {
             if (user) return res.json({
                 msg: true,
                 id: user.id,
+                fullName: `${user.first_name} ${user.last_name}`,
                 username: user.username,
                 picture: user.picture,
                 type: 'user'
@@ -63,6 +64,7 @@ exports.loginUser = async (req, res) => {
             if (user) return res.json({
                 msg: true,
                 id: user.id,
+                fullName: `${user.first_name} ${user.last_name}`,
                 username: user.username,
                 picture: user.picture,
                 type: 'user'
@@ -73,3 +75,18 @@ exports.loginUser = async (req, res) => {
             res.json({ msg: 'error' });
         })
 }
+
+//Abi
+// exports.postFav = async (req, res) => {
+//     const { id_event, id_user } = req.body;
+//     try{
+//         const event = await Event.findOne({
+//             where : {id : id_event}
+//         })
+//         event.setUser(id_user)
+//         return res.json({msg: 'Se agregó con éxito a favortitos'})
+//     }catch(error){
+//         console.log(error)
+//         res.json({msg:'Lo siento hubo un error'})
+//     }
+// }

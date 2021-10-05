@@ -1,7 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
-const Ticket = sequelize.define('event', {
+const Ticket = sequelize.define('ticket', {
+
     id:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -12,7 +13,15 @@ const Ticket = sequelize.define('event', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    nameUser:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     idEvent:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    nameEvent:{
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -20,8 +29,16 @@ const Ticket = sequelize.define('event', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    quantity:{
+    idPromoter:{
         type: DataTypes.STRING,
+        allowNull: false
+    },
+    quantity:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    total:{
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     direction:{
@@ -32,8 +49,12 @@ const Ticket = sequelize.define('event', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    schedule:{
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true
+    },
     seating:{
-        type: DataTypes.STRING,
+        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false
     },   
 },
