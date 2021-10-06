@@ -3,7 +3,8 @@ const router = express.Router();
 const { 
     viewTicketUser,
     viewTicketEvent,
-    viewTicketPromoter 
+    viewTicketPromoter,
+    viewTicketId 
 } = require('../controllers/Ticket/getController');
 const { 
     createTicket,
@@ -15,9 +16,10 @@ const {
 
 
 //GET
-router.get('/ticket/:userId',viewTicketUser);
+router.get('/ticket/user/:userId',viewTicketUser);
 router.get('/ticket/event/:eventId',viewTicketEvent );
 router.get('/ticket/promoter/:promoterId',viewTicketPromoter );
+router.get('/ticket/:ticketId',viewTicketId);
 
 //POST
 router.post('/ticket/create',createTicket);
