@@ -48,7 +48,7 @@ app.use('/cloudinary', require('./routes/cloudinary'));
 app.use('/api', require('./routes/ticket'));
 
 //Follow Routes
-app.use('/api', require('./routes/follow'));
+/* app.use('/api/follow', require('./routes/follow')); */
 
 
 
@@ -57,10 +57,13 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`Listening at port:${port}`);
 
   //conectar base de datos
-  sequelize.sync({ force: false }).then(() => {
+  sequelize.sync({ force: true }).then(async () => {
     console.log('Conection to the DB Success');
-    User.bulkCreate(user_seeders);
-    Promoter.bulkCreate(promoter_seeders);
+    const user_full = await User.findOne({where: {}});
+    if (!user_full) { User.bulkCreate(user_seeders) };
+
+    const promoter_full = await Promoter.findOne({where: {}});
+    if (!promoter_full) { Promoter.bulkCreate(promoter_seeders) };
   }).catch(error => {
     console.log('An error has been found: ', error)
   })
