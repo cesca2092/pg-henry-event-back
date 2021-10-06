@@ -5,7 +5,8 @@ exports.putController = async (req, res) => {
     const { id_promoter, id_user } = req.body;
     // console.log('"EVENT":', event, '"ID_USER":', id_user)
     try {
-        const favs = await User.findAll({
+        console.log(req.body);
+        /* const favs = await User.findAll({
             where: { id: id_user },
             attributes: ['favorite']
         })
@@ -37,7 +38,7 @@ exports.putController = async (req, res) => {
                 where: { id: id_user }
             })
             return res.json({ msg: `Se eliminó de favoritos! ` })
-        }
+        } */
     } catch (error) {
         console.log(error)
         res.json({ msg: 'Lo siento hubo un error' })
