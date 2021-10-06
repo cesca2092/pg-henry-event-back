@@ -2,13 +2,15 @@ require('dotenv').config();
 
 const { DB_USER,
         DB_PASSWORD,
-        DB_HOST } = process.env;
+        DB_HOST,
+        DB_NAME
+ } = process.env;
 
 module.exports = {
     database:{
         username: `${DB_USER}`,
-        password:  `${DB_PASSWORD}`,
-        database: 'event',//nombre de la base de datos
+        password: `${DB_PASSWORD}`,
+        database: 'event', //`${DB_NAME}`, nombre de la base de datos
         host: `${DB_HOST}`
     }
 } 
