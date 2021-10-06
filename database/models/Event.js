@@ -20,21 +20,16 @@ const Event = sequelize.define('event', {
     starring: {
         type: DataTypes.STRING,
     },
-    remote: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
+    pictures: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
     },
-    //IF LOCATION MODEL IS DISCARDED:
-    // location: {
-    //     type: DataTypes.STRING, //Previously processed at frontend.
-    //     allowNull: false,
+    // remote: {
+    //     type: DataTypes.BOOLEAN,
+    //     defaultValue: false,
     // },
     address: {
         type: DataTypes.STRING,
-        allowNull: false,
-    },
-    pictures: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: false,
     },
     start_date: { // AAAA-MM-DD
@@ -44,10 +39,11 @@ const Event = sequelize.define('event', {
     },
     finish_date: { // AAAA-MM-DD
         type: DataTypes.STRING,
-
+        allowNull: true,
     },
     schedule: { //TEMPORARY. CONVERT INTO SEPARATE MODEL AFTERWARDS
         type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: false,
     },
     isrecurrent: {
         type: DataTypes.BOOLEAN,
@@ -59,7 +55,7 @@ const Event = sequelize.define('event', {
             "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
 
         )),
-        allowNull: false,
+        allowNull: true,
     },
     tags: { // TEMPORARY. TURN INTO SEPARATE MODEL AFTERWARDS
         type: DataTypes.ENUM(
@@ -71,31 +67,34 @@ const Event = sequelize.define('event', {
         type: DataTypes.ENUM("0+", "7+", "13+", "18+"),
         allowNull: false,
     },
-    price: { //SINGULAR FOR NOW. THEN TRY TO TURN INTO PRICES
-        type: DataTypes.STRING,
+
+    sectorize:{
+        type: DataTypes.ENUM('no sectorizar', 'sectorizar sin croquis', 'sectorizar con croquis'),
         allowNull: false,
     },
+
+    price: { //SINGULAR FOR NOW. THEN TRY TO TURN INTO PRICES
+        type: DataTypes.STRING,//precio si la seccion no tiene sectores
+        allowNull: true,
+    },
     ticket_limit: {
-        type: DataTypes.INTEGER,
-    },
-    seat_booking: {
-        /* ?????????????? */
-        type: DataTypes.STRING,
+        type: DataTypes.STRING,//limite si la seccion no tiene sectores
         allowNull: true,
     },
-    // country:{
+    
+    sections : {
+        type: DataTypes.JSON()
+    }
+    // seat_booking: {
+    //     /* ?????????????? */
     //     type: DataTypes.STRING,
-    //     // allowNull: false
+    //     allowNull: true,
     // },
-    // region:{
-    //     type: DataTypes.STRING,
-    //     // allowNull:false,
-    // }
-    section: {
-        /* ?????????????? */
-        type: DataTypes.JSON,
-        allowNull: true,
-    },
+    // section: {
+    //     /* ?????????????? */
+    //     type: DataTypes.JSON,
+    //     allowNull: true,
+    // },
 
 },
     {
