@@ -5,7 +5,7 @@ exports.putController = async (req, res) => {
     const { id_promoter, id_user } = req.body;
     // console.log('"EVENT":', event, '"ID_USER":', id_user)
     try {
-        console.log(req.body);
+        alert(req.body);
         /* const favs = await User.findAll({
             where: { id: id_user },
             attributes: ['favorite']
