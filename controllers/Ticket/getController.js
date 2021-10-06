@@ -47,3 +47,20 @@ exports.viewTicketPromoter = async (req,res) => {
         res.send(res.send({response:'No tickets or error',error:error}))
     }
 }
+
+
+exports.viewTicketId = async (req,res) => {
+
+    const { ticketId } = req.params
+
+    try {
+        let ticket = await Ticket.findOne({
+            where: {
+                id:ticketId
+            }
+        })
+        res.json(ticket)
+    } catch (error) {
+        res.send(res.send({response:'No find ticket or error',error:error}))
+    }
+}
