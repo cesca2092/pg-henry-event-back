@@ -2,27 +2,29 @@ const express = require('express');
 const router = express.Router();
 const { 
     viewTicketUser,
-    prueba
+    viewTicketEvent,
+    viewTicketPromoter 
 } = require('../controllers/Ticket/getController');
 const { 
     createTicket,
-    pruebapost
 } = require('../controllers/Ticket/postController');
 const { 
-    deleteTicket
+    deleteTicket,
+    deleteTicketUser
 } = require('../controllers/Ticket/deleteController');
 
 
 //GET
 router.get('/ticket/:userId',viewTicketUser);
-router.get('/prueba',prueba);
+router.get('/ticket/event/:eventId',viewTicketEvent );
+router.get('/ticket/promoter/:promoterId',viewTicketPromoter );
 
 //POST
 router.post('/ticket/create',createTicket);
-router.post('/pruebapost',pruebapost);
+
 
 //DELETE
 router.delete('/ticket/delete/:id',deleteTicket)
-
+router.delete('/ticketsUser/delete/:idUser',deleteTicketUser)
 
 module.exports = router;

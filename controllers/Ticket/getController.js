@@ -9,7 +9,6 @@ exports.viewTicketUser = async (req,res) => {
             where: {
                 idUser: userId
             }
-            // attributes: ['name', 'difficulty', 'duration', 'season']
         })
         res.json(userTickets)
     } catch (error) {
@@ -17,10 +16,34 @@ exports.viewTicketUser = async (req,res) => {
     }
 }
 
+exports.viewTicketEvent = async (req,res) => {
 
-exports.prueba = async (req,res) => {
+    const { eventId } = req.params
 
-   
-        res.send('funciona')
-    
+    try {
+        let eventTickets = await Ticket.findAll({
+            where: {
+                idEvent: eventId
+            }
+        })
+        res.json(eventTickets)
+    } catch (error) {
+        res.send(res.send({response:'No tickets or error',error:error}))
+    }
+}
+
+exports.viewTicketPromoter = async (req,res) => {
+
+    const { promoterId } = req.params
+
+    try {
+        let promoterTickets = await Ticket.findAll({
+            where: {
+                idPromoter: promoterId
+            }
+        })
+        res.json(promoterTickets)
+    } catch (error) {
+        res.send(res.send({response:'No tickets or error',error:error}))
+    }
 }
