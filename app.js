@@ -3,6 +3,12 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const sequelize = require('./database/db');
+const User = require('./database/models/User');
+const Promoter = require('./database/models/Promoter');
+const {
+  user_seeders,
+  promoter_seeders,
+} = require('./seeders');
 require('./database/relations');
 
 //setting
@@ -50,6 +56,8 @@ app.listen(port, '0.0.0.0', () => {
   //conectar base de datos
   sequelize.sync({ force: true }).then(() => {
     console.log('Conection to the DB Success');
+    User.bulkCreate(user_seeders);
+    Promoter.bulkCreate(promoter_seeders);
   }).catch(error => {
     console.log('An error has been found: ', error)
   })
