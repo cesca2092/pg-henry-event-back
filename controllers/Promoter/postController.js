@@ -3,7 +3,6 @@ const { Sequelize } = require('sequelize');
 const Op = Sequelize.Op;
 
 exports.saveInfoPromotor = async (req,res) =>{
- 
     const {
         legal_name,
         business_name,

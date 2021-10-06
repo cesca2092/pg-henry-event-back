@@ -34,6 +34,7 @@ exports.getEventByIdController = async (req,res) => {
 
 
     try {
+        console.log('entreeee')
         const consult = await Event.findByPk(id,{
             include:[
                 {
@@ -48,7 +49,7 @@ exports.getEventByIdController = async (req,res) => {
             ]
         });     
     
-
+        console.log(consult)
         if(!consult) return res.json({msg:'ID does not match with any event'});
         
         res.json({
