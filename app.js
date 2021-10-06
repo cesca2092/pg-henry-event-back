@@ -57,7 +57,9 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`Listening at port:${port}`);
 
   //conectar base de datos
+
   sequelize.sync({ force: false }).then(async () => {
+
     console.log('Conection to the DB Success');
     const user_full = await User.findOne({where:{}});
     if (!user_full) { User.bulkCreate(user_seeders) };
