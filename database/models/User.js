@@ -66,10 +66,14 @@ const User = sequelize.define('user', {
     favorite : {
         type: DataTypes.ARRAY(DataTypes.STRING),//Abi
         allowNull: true
+    },
+    following: {
+        type: DataTypes.ARRAY(DataTypes.JSON),
+        allowNull: true,
     }
 },
 {
-    timestamps: false
+    timestamps: false,
 });
 
 module.exports = User;

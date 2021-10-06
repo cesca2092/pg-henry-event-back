@@ -13,14 +13,14 @@ exports.saveInfoPromotor = async (req,res) =>{
         email,
         password,
         business_type,
-        address, 
+        address,
         picture,
     } = req.body;
 
     try{
         const [promoter,created] = await Promoter.findOrCreate({
             where:{
-                [Op.or]:[              
+                [Op.or]:[
                     {email},
                     {tax_id},
                     {phone},
@@ -37,6 +37,7 @@ exports.saveInfoPromotor = async (req,res) =>{
                 business_type,
                 address,
                 picture,
+                followed_by: [],
             },
         });
         if(!created){
