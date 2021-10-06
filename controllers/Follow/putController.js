@@ -1,46 +1,47 @@
-const User = require('../../database/models/User');
-const Promoter = require('../../database/models/Promoter');
+const User = require("../../database/models/User");
+const Promoter = require("../../database/models/Promoter");
 
-exports.putController = async (req, res) => {
-    const { id_promoter, id_user } = req.body;
-    // console.log('"EVENT":', event, '"ID_USER":', id_user)
-    try {
-        return req.body;
-        /* const favs = await User.findAll({
-            where: { id: id_user },
-            attributes: ['favorite']
-        })
-        const eventDate = await Event.findAll({
-            where:{id: event.id || event},
-            attributes: ['start_date']
-        })
-        event.date = eventDate
-        let data = favs[0].favorite
-        if (typeof (event) === 'object') {
-            if (data !== null) {
-                data.push(event)
-                // data = []
-            } else {
-                data = [event]
-                // data = []
-            }
-            const resp = await User.update({
-                favorite: data
-            }, {
-                where: { id: id_user }
-            })
-            return res.json({ msg: `Se agregó con éxito a favoritos '${event.name}' ` })
-        } else if (typeof (event) === 'string') {
-            let deleteFav = data.filter((e) => !e.includes(event))
-            const resp = await User.update({
-                favorite: deleteFav
-            }, {
-                where: { id: id_user }
-            })
-            return res.json({ msg: `Se eliminó de favoritos! ` })
-        } */
-    } catch (error) {
-        console.log(error)
-        res.json({ msg: 'Lo siento hubo un error' })
-    }
-}
+exports.followUnfollow = async (req, res) => {
+  const f = req.body;
+  console.log("PROMOTER ID: ", f.id_promoter, "USER ID:", f.id_user);
+  console.log("REQ.BODY: ", req.body);
+  try {
+    const followingList = await User.findAll({
+      where: { id: f.id_user },
+      attributes: ["following"],
+    });
+console.log("FOLLOWING LIST 1: ", followingList);
+    const followerList = await Promoter.findAll({
+      where: { id: f.id_promoter },
+      attributes: ["followed_by"],
+    });
+console.log('FOLLOWER LIST 1: ', followerList);
+    let f_ing = followingList[0]?.following;
+    let f_ers = followerList[0]?.followed_by;
+    if (f_ing?.includes(f.id_promoter)) {
+        f_ing.filter(el => el !== f.id_promoter);
+     } else {
+         f_ing?.push(f.id_promoter);
+     }
+    if(f_ers?.includes(f.id_user)) {
+        f_ers.filter(el => el !== f.id_user);
+     } else {
+         f_ers?.push(f.id_user);
+        };
+    console.log("FOLLOWING LIST 2: ", f_ing);
+    console.log("FOLLOWER LIST 2: ", f_ers);
+    await User.update(
+      { following: f_ing },
+      { where: { id: f.id_user } }
+    );
+    await Promoter.update(
+    { followed_by: f_ers },
+    { where: { id: f.id_promoter } }
+    );
+
+    res.json("ok");
+  } catch (error) {
+    console.log(error);
+    res.json({ msg: "error" });
+  }
+};
