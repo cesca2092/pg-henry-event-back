@@ -3,12 +3,17 @@ const Promoter = require ('../../database/models/Promoter');
 const Location = require('../../database/models/Location');
 
 exports.saveInfoEvent = async (req,res) => {
-    
+    let sections = ''
+    if(req.body.sectorize === 'sectorizar con croquis'){
+        sections = JSON.stringify(req.body.sectoresCroquis)
+    }else if(req.body.sectorize === 'sectorizar sin croquis'){
+        sections = JSON.stringify(req.body.sectores)
+    }
     const { 
-        name,           description,    starring,   remote,        ticket_limit,       
+        name,           description,    starring,   ticket_limit,       
         address,        pictures,       start_date, finish_date,    schedule,   
         isRecurrent,    weekdays,       tags,       age_rating,     price,  
-        country,        city,           region,   promoter_id,    section,
+        country,        city,           region,   promoter_id,  sectorize  
 
     } = req.body;
     
@@ -18,10 +23,10 @@ exports.saveInfoEvent = async (req,res) => {
                 name
             },
             defaults:{
-            name,           description,    starring,   remote,        ticket_limit,        
+            name,           description,    starring,     ticket_limit,        
             address,        pictures,       start_date, finish_date,    schedule,   
-            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price,  section,
-
+            isrecurrent:isRecurrent,    weekdays,       tags,       age_rating,     price, 
+            sections , sectorize
             }
         });
     
