@@ -14,7 +14,9 @@ exports.getController = async (req,res) => {
             "pictures",
             "tags",
             "age_rating",
-            "weekdays"
+            "weekdays",
+            "sectorize",
+            "sections"
         ],
         include:{
             model: Location,
