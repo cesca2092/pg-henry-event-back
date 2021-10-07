@@ -1,4 +1,5 @@
 const Ticket = require('../../database/models/Ticket');
+const { sequelize } = require('../../database/models/Ticket');
 
 exports.viewTicketUser = async (req,res) => {
 
@@ -8,7 +9,7 @@ exports.viewTicketUser = async (req,res) => {
         let userTickets = await Ticket.findAll({
             where: {
                 idUser: userId
-            }
+            }   
         })
         res.json(userTickets)
     } catch (error) {
@@ -22,6 +23,9 @@ exports.viewTicketEvent = async (req,res) => {
 
     try {
         let eventTickets = await Ticket.findAll({
+        
+                          
+                  
             where: {
                 idEvent: eventId
             }
@@ -38,12 +42,19 @@ exports.viewTicketPromoter = async (req,res) => {
 
     try {
         let promoterTickets = await Ticket.findAll({
-            where: {
+            where:{
                 idPromoter: promoterId
-            }
+                        },
+                       attributes:[
+                        "nameEvent",
+                          [sequelize.fn("sum",sequelize.col("total")),"totalVenta" ]
+                      ]
+                      ,
+                      group:["nameEvent"]
         })
         res.json(promoterTickets)
     } catch (error) {
+        console.log('te odio',error)
         res.send(res.send({response:'No tickets or error',error:error}))
     }
 }
