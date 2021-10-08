@@ -70,27 +70,11 @@ exports.putLimit = async (req, res) => {
                      id:idEvent
                 }
             })
-            res.json({msg:'update'})
+            res.json({result,msg:'update'})
         }catch (error) {
             console.log(error)
             res.json(error)
         }
     }
 
-   
- 
-    // try {
-    //     const result = await Event.update({
-            
-    //     },{
-    //         where: {
-    //              id
-    //         }
-    //     })
-
-    //     res.json({result:result,location:location,msg:'update'})
-    // } catch (error) {
-    //     console.log(error)
-    //     res.json(error)
-    // }
 }
