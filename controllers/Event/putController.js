@@ -41,3 +41,56 @@ exports.putController = async (req, res) => {
         res.json(error)
     }
 }
+
+exports.putLimit = async (req, res) => {
+    console.log(req.body)
+    const {dataUpdate,idEvent,type} = req.body
+    // if(type === 'sector'){
+    //     try{
+    //         const result = await Event.update({   
+    //             sections:JSON.stringify(dataUpdate),
+    //         },{
+    //             where: {
+    //                  id:idEvent
+    //             }
+    //         })
+    //         res.json({result:result,location:location,msg:'update'})
+    //     }catch (error) {
+    //         console.log(error)
+    //         res.json(error)
+    //     }
+    // }
+
+    if(type === 'croquis'){
+        try{
+            const result = await Event.update({   
+                sections:JSON.stringify(dataUpdate),
+            },{
+                where: {
+                     id:idEvent
+                }
+            })
+            res.json({msg:'update'})
+        }catch (error) {
+            console.log(error)
+            res.json(error)
+        }
+    }
+
+   
+ 
+    // try {
+    //     const result = await Event.update({
+            
+    //     },{
+    //         where: {
+    //              id
+    //         }
+    //     })
+
+    //     res.json({result:result,location:location,msg:'update'})
+    // } catch (error) {
+    //     console.log(error)
+    //     res.json(error)
+    // }
+}

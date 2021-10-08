@@ -12,7 +12,8 @@ const {
 } = require('../controllers/Event/postController');
 
 const {
-    putController
+    putController,
+    putLimit,
 } = require('../controllers/Event/putController');
 
 const {
@@ -32,7 +33,7 @@ router.post('/event',saveInfoEvent);
 
 //PUT(sequelize usa el metodo patch)
 router.put('/event/edit/:id',putController)
-
+router.put('/event/editlimit',putLimit)
 //DELETE
 router.delete('/event/delete/:id',deleteController)
 
