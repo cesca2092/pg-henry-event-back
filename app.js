@@ -58,7 +58,7 @@ app.listen(port, '0.0.0.0', () => {
 
   //conectar base de datos
 
-  sequelize.sync({ force: false }).then(async () => {
+  sequelize.sync({ force: true }).then(async () => {
 
     console.log('Conection to the DB Success');
     const user_full = await User.findOne({where:{}});
