@@ -37,24 +37,22 @@ const Event = sequelize.define('event', {
         validate: { isDate: true },
         allowNull: false,
     },
-    finish_date: { // AAAA-MM-DD
-        type: DataTypes.STRING,
-        allowNull: true,
-    },
+    // finish_date: { // AAAA-MM-DD
+    //     type: DataTypes.STRING,
+    //     allowNull: true,
+    // },
     schedule: { //TEMPORARY. CONVERT INTO SEPARATE MODEL AFTERWARDS
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
     },
-    isrecurrent: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-    },
+    // isrecurrent: {
+    //     type: DataTypes.BOOLEAN,
+    //     defaultValue: false,
+    // },
     weekdays: {
-        type: DataTypes.ARRAY(DataTypes.ENUM(
-
+        type: DataTypes.ENUM(
             "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
-
-        )),
+        ),
         allowNull: true,
     },
     tags: { // TEMPORARY. TURN INTO SEPARATE MODEL AFTERWARDS
