@@ -11,6 +11,10 @@ const {
     getFormattedComments
 } = require('../controllers/Comment/getController');
 
+const {
+    deleteComment,
+} = require('../controllers/Comment/deleteController');
+
 
 
 //GET
@@ -21,6 +25,9 @@ router.get('/getFormattedComments', getFormattedComments);
 
 //POST
 router.post('/', postComment);
+
+// DELETE
+router.delete('/delete', deleteComment)
 
 
 module.exports = router;
