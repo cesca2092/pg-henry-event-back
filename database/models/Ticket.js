@@ -54,7 +54,7 @@ const Ticket = sequelize.define('ticket', {
         allowNull: true
     },
     seating:{
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false
     },   
 },
